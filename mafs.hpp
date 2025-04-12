@@ -17,18 +17,12 @@ using namespace std;
 
     //X axis intersected by line segment between p1, p2
     bool x_axis_intersected(Point &p1,  Point &p2, bool on_negative){
-        if((p1.y >= 0.0 && p2.y <= 0.0) || (p1.y <= 0.0 && p2.y >= 0.0)){
-            double x =  p1.x + (0.0 - p1.y) * (p2.x - p1.x) / (p2.y - p1.y);
-            return (on_negative ? x <=0.0 : x>=0.0) && is_within_bounds(x, p1.x, p2.x);
-        }
-        return false;
+        double x_intersection =  p1.x + (0.0 - p1.y) * (p2.x - p1.x) / (p2.y - p1.y);
+        return (on_negative ? x_intersection <=0.0 : x_intersection>=0.0) && is_within_bounds(x_intersection, p1.x, p2.x);
     }
 
     bool y_axis_intersected(Point &p1, Point &p2, bool on_negative){
-        if((p1.x >= 0.0 && p2.x <= 0.0) || (p1.x <= 0.0 && p2.x >= 0.0)){
-            double y =  p1.y + (0.0 - p1.x) * (p2.y - p1.y) / (p2.x - p1.x);
-            return (on_negative ? y <=0.0 : y>=0.0) && is_within_bounds(y, p1.y, p2.y);
-        }
-        return false;
+        double y_intersection =  p1.y + (0.0 - p1.x) * (p2.y - p1.y) / (p2.x - p1.x);
+        return (on_negative ? y_intersection <=0.0 : y_intersection>=0.0) && is_within_bounds(y_intersection, p1.y, p2.y);
     }
 
