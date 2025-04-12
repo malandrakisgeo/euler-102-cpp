@@ -1,0 +1,5 @@
+An alternative solution to Euler problem 102.
+
+My basic idea when reading the problem was that it should suffice to check whether a triangle
+cuts the X and Y axis on both positive and negative points of it, hence containing (0,0)
+
